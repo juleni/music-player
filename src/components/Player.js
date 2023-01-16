@@ -1,17 +1,14 @@
-import { useEffect, useState } from "react"; 
-import useSound from "use-sound"; // for handling the sound
-import qala from "../assets/003.mp3"; // importing the music file
-import { AiFillPlayCircle, AiFillPauseCircle } from "react-icons/ai"; // icons for play and pause
-import { BiSkipNext, BiSkipPrevious } from "react-icons/bi"; // icons for next and previous track
+import { useState } from "react";
 import { IconContext } from "react-icons"; // for customizing icons
+import { AiFillPauseCircle, AiFillPlayCircle } from "react-icons/ai"; // icons for play and pause
+import { BiSkipNext, BiSkipPrevious } from "react-icons/bi"; // icons for next and previous track
+import useSound from "use-sound"; // for handling the sound
+import qala from "../assets/sample.mp3"; // importing the music file
 
 export default function Player() {
-
   const [isPlaying, setIsPlaying] = useState(false);
   const [play, { pause, duration, sound }] = useSound(qala);
 
-
-  
   const playingButton = () => {
     if (isPlaying) {
       pause(); // this will pause the audio
@@ -25,10 +22,7 @@ export default function Player() {
   return (
     <div className="component">
       <h2>Playing Now</h2>
-      <img
-        className="musicCover"
-        src="https://picsum.photos/200/200"
-      />
+      <img className="musicCover" src="https://picsum.photos/200/200" />
       <div>
         <h3 className="title">Rubaiyyan</h3>
         <p className="subTitle">Qala</p>
